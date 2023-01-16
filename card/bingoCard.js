@@ -37,5 +37,8 @@ function showCard(cardArray) {
     newCardArray[Math.floor(i / 5)].push(cardArray[i])
   }
   console.log(newCardArray)
-  cardView.innerText = newCardArray.join("\n")
+  cardArray.forEach(element => {
+    cardView.innerHTML += `<div>${element}</div>`
+  });
+  // cardView.innerText = newCardArray.join("\n")
 }
