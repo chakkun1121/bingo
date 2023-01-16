@@ -7,7 +7,7 @@ function makeCard() {
   //ビンゴカードの要素の最大値
   const CARD_ELEMENT_MAX = 75;
   //ビンゴカードの空白部分
-  const CARD_BLANK = ' ';
+  const CARD_BLANK = 'FREE';
   //ビンゴカードの空白部分のインデックス
   const CARD_BLANK_INDEX = ((CARD_SIZE * CARD_SIZE) - 1) / 2;
   //ビンゴカードの要素を生成する
