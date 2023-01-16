@@ -3,3 +3,27 @@
     display: none;
   }
 }
+#showCards>section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."
+    ". . . . .";
+  gap: 1px 1px;
+  font-size: 30px;
+  width: fit-content;
+  justify-items: center;
+  align-items: center;
+  border: solid 1px;
+    break-after: page;
+}
+
+#showCards>section>div {
+  width: -webkit-fill-available;
+  text-align: center;
+  border: solid 1px;
+}

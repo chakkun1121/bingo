@@ -1,15 +1,15 @@
 function creatCards() {
-  const makeCardNumber = cardNumber.value
+  const makeCardNumber = cardNumber.value;
   //カードの作成
-  for (let i = 0; i < makeCardNumber; i++){
-    showCard(makeCard())
+  for (let i = 0; i < makeCardNumber; i++) {
+    showCard(makeCard());
   }
 }
-function showCard(cardArrary) {
-let cardElement = document.createElement('section')
+function showCard(cardArray) {
+  let cardElement = document.createElement("section");
 
-  cardArray.forEach(element => {
-    cardElement.innerHTML += `<div>${element}</div>`
+  cardArray.forEach((element) => {
+    cardElement.innerHTML += `<div>${element}</div>`;
   });
-  cardElement.appendChild(showCards)
+  showCards.appendChild(cardElement);
 }
