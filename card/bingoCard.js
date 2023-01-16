@@ -1,11 +1,7 @@
-window.onload = makeCard()
+window.onload = showCard(makeCard())
 function makeCard() {
   //ビンゴカードのサイズ(行数、列数)
   const CARD_SIZE = 5;
-
-  //生成するビンゴカードを格納する配列
-  let cards = [];
-
   //ビンゴカードの要素数
   const CARD_ELEMENT_COUNT = CARD_SIZE * CARD_SIZE;
   //ビンゴカードの要素の最大値
@@ -31,10 +27,10 @@ function makeCard() {
   }
   //空白部分を追加する
   card[CARD_BLANK_INDEX] = CARD_BLANK;
-  cards.push(card);
 
-  console.log(cards);
+  console.log(card);
+  return card
 }
 function showCard(cardArray) {
-  
+  cardView.innerText = cardArray.join(",")
 }
