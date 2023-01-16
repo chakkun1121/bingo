@@ -32,5 +32,10 @@ function makeCard() {
   return card
 }
 function showCard(cardArray) {
-  cardView.innerText = cardArray.join(",")
+  let newCardArray = [[], [], [], [], []];
+  for (let i = 0; i < cardArray.length; i++) {
+    newCardArray[Math.floor(i / 5)].push(cardArray[i])
+  }
+  console.log(newCardArray)
+  cardView.innerText = newCardArray.join("\n")
 }
