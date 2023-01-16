@@ -10,4 +10,10 @@
     ". . . . ."
     ". . . . .";
   gap: 1px 1px;
+  font-size: 30px;
+  width: fit-content;
+}
+
+#cardView>div {
+  width: min-content;
 }
