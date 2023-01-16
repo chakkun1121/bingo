@@ -1,4 +1,3 @@
-window.onload = showCard(makeCard())
 function makeCard() {
   //ビンゴカードのサイズ(行数、列数)
   const CARD_SIZE = 5;
@@ -30,15 +29,4 @@ function makeCard() {
 
   console.log(card);
   return card
-}
-function showCard(cardArray) {
-  let newCardArray = [[], [], [], [], []];
-  for (let i = 0; i < cardArray.length; i++) {
-    newCardArray[Math.floor(i / 5)].push(cardArray[i])
-  }
-  console.log(newCardArray)
-  cardArray.forEach(element => {
-    cardView.innerHTML += `<div>${element}</div>`
-  });
-  // cardView.innerText = newCardArray.join("\n")
 }
