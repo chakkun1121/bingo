@@ -1,27 +1,38 @@
-@media print{
-  header,footer{
+@media print {
+  header,
+  footer {
     display: none;
   }
 }
+
 #showCards>section {
-  font-size:30px;
-  display: grid; 
-  grid-template-columns: 100px 100px 100px 100px 100px; 
-  grid-template-rows: 1fr 100px 100px 100px 100px 100px; 
-  gap: 1px 1px; 
-  grid-template-areas: 
+  font-size: 30px;
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px;
+  grid-template-rows: 1fr 100px 100px 100px 100px 100px;
+  gap: 1px 1px;
+  grid-template-areas:
     "card-title card-title card-title card-title card-title"
     ". . . . ."
     ". . . . ."
     ". . . . ."
     ". . . . ."
-    ". . . . ."; 
+    ". . . . .";
   justify-items: center;
   align-items: center;
   border: solid 1px;
   break-after: page;
+  width: min-content;
 }
-.card-title { grid-area: card-title; }
+
+.card-title {
+  grid-area: card-title;
+  margin: 0;
+}
+#showCards{  
+      display: grid;
+      justify-content: center;
+}
 #showCards>section>div {
   display: grid;
   width: -webkit-fill-available;
@@ -29,5 +40,5 @@
   text-align: center;
   border: solid 1px;
   padding: auto;
-      align-items: center;
+  align-items: center;
 }
