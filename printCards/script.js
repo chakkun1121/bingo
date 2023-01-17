@@ -7,7 +7,7 @@ function creatCards() {
 }
 function showCard(cardArray) {
   let cardElement = document.createElement("section");
-
+cardElement.innerHTML=`<h1 class="card-title">ビンゴカード</h1>`
   cardArray.forEach((element) => {
     cardElement.innerHTML += `<div>${element}</div>`;
   });

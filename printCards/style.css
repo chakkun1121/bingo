@@ -4,24 +4,24 @@
   }
 }
 #showCards>section {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas:
+  font-size:30px;
+  display: grid; 
+  grid-template-columns: 45px 45px 45px 45px 45px; 
+  grid-template-rows: 45px 45px 45px 45px 45px 45px; 
+  gap: 1px 1px; 
+  grid-template-areas: 
+    "card-title card-title card-title card-title card-title"
     ". . . . ."
     ". . . . ."
     ". . . . ."
     ". . . . ."
-    ". . . . .";
-  gap: 1px 1px;
-  font-size: 30px;
-  width: fit-content;
+    ". . . . ."; 
   justify-items: center;
   align-items: center;
   border: solid 1px;
     break-after: page;
 }
-
+.card-title { grid-area: card-title; }
 #showCards>section>div {
   width: -webkit-fill-available;
   text-align: center;
