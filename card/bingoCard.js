@@ -6,18 +6,15 @@ function makeCard() {
   //ビンゴカードの要素の最大値
   const CARD_ELEMENT_MAX = 75;
   //ビンゴカードの空白部分
-  const CARD_BLANK = 'FREE';
+  const CARD_BLANK = "FREE";
   //ビンゴカードの空白部分のインデックス
-  const CARD_BLANK_INDEX = ((CARD_SIZE * CARD_SIZE) - 1) / 2;
+  const CARD_BLANK_INDEX = (CARD_SIZE * CARD_SIZE - 1) / 2;
   //ビンゴカードの要素を生成する
-  let elements = [];
-  for (let i = 0; i < CARD_ELEMENT_COUNT; i++) {
-    elements.push(i);
-  }
-//TODO: 何故か0が含まれることがあるのでその訂正
+  let cardElements = [...Array(CARD_ELEMENT_MAX + 1)].map((_, i) => i);
+  cardElements.shift();
+  //TODO: 何故か0が含まれることがあるのでその訂正
   //ビンゴカードを生成する
   let card = [];
-  let cardElements = elements.slice();
   for (let j = 0; j < CARD_ELEMENT_COUNT; j++) {
     //要素をランダムに選択してカードに追加する
     let randomIndex = Math.floor(Math.random() * cardElements.length);
@@ -28,5 +25,5 @@ function makeCard() {
   card[CARD_BLANK_INDEX] = CARD_BLANK;
 
   console.log(card);
-  return card
+  return card;
 }
