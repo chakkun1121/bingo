@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ビンゴマシーン</title>
+  <link href="./style.css" rel="stylesheet" />
 </head>
 
 <body>
-  <header>ビンゴ</header>
+  <header>
+    <h1>ビンゴ</h1>
+  </header>
   <main>
     <section class="show-number">
-      <h1 id="showNumber"></h1>
+      <p id="showNumber">
+      </p>
     </section>
-    <section class="history"></section>
+    <section class="history" id="viewHistories"></section>
     <section class="operation">
-      <button>回す</button>
+      <button onclick="startBingo()">回す</button>
     </section>
   </main>
-  <script src="./script.js" </body>
+  <script src="./script.js"></script>
+</body>
 
-</html >
+</html>
