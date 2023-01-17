@@ -14,7 +14,7 @@ function makeCard() {
   for (let i = 0; i < CARD_ELEMENT_COUNT; i++) {
     elements.push(i);
   }
-
+//TODO: 何故か0が含まれることがあるのでその訂正
   //ビンゴカードを生成する
   let card = [];
   let cardElements = elements.slice();
