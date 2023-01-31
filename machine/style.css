@@ -6,7 +6,10 @@
 .history {
   font-size: 50px;
   display: flex;
+  flex-wrap: wrap;
 }
 .history > div {
   border: solid 5px;
+  width: 80px;
+  text-align: center;
 }
