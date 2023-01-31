@@ -1,8 +1,12 @@
-#showNumber{
-  font-size: 100px;
+#showNumber {
+  font-size: 200px;
   margin: 0;
+  text-align: center;
 }
-.history{
-  font-size: 20px;
+.history {
+  font-size: 50px;
   display: flex;
+}
+.history > div {
+  border: solid 5px;
 }
