@@ -1,8 +1,8 @@
 const CARD_ELEMENT_MAX = 75;
 let hisotryNumbers = [];
 let cardElements = [...Array(CARD_ELEMENT_MAX)].map((_, i) => i + 1);
-console.log(cardElements);
-let shuffleTimes = 10;
+let shuffleTimes;
+let shuffleCount = 0;
 /**
  * ビンゴマシーンが回っているか
  */
@@ -13,22 +13,23 @@ function startBingo() {
     alert("もうすべての番号を出しました。");
     return;
   }
-  let shuffleCount = 0;
-  shuffleTimes = randomBetween(5, 20);
-  const machineShuffle = setInterval(function () {
+  shuffleCount = 0;
+  machineShuffle = setInterval(function () {
     const viewNumber = arrayShuffle(cardElements)[0];
-    8, 15;
     showNumber(viewNumber, shuffleCount == shuffleTimes);
-    if (shuffleCount >= shuffleTimes) {
-      clearInterval(machineShuffle);
-      return;
-    }
     shuffleCount++;
   }, 100);
+}
+function stopBingo() {
+  shuffleCount = 0;
+  shuffleTimes = randomBetween(3, 5);
 }
 function showNumber(showNumber, isSaveToHistory) {
   document.getElementById("showNumber").innerText = showNumber;
   if (!isSaveToHistory) return;
+  shuffleTimes = undefined;
+  clearInterval(machineShuffle);
+  console.info("stop");
   //出した後、cardElementsから撤去
   cardElements.shift();
   //履歴欄にも追加
