@@ -14,22 +14,40 @@ function startBingo() {
     alert("もうすべての番号を出しました。");
     return;
   }
+  isPressedStopButton = false;
   shuffleCount = 0;
-  machineShuffle = setInterval(function () {
-    const viewNumber = arrayShuffle(cardElements)[0];
-    showNumber(viewNumber, shuffleCount == shuffleTimes);
-    shuffleCount++;
-  }, 100);
+  nextNumber();
+}
+function nextNumber(isFinish = false) {
+  if (cardElements.length == 0) {
+    alert("もうすべての番号を出しました。");
+    return;
+  }
+  const viewNumber = arrayShuffle(cardElements)[0];
+  showNumber(viewNumber, isFinish);
+  if (isPressedStopButton) return;
+  setTimeout(nextNumber, 100);
 }
 function stopBingoButton() {
   shuffleCount = 0;
+  isPressedStopButton = true;
   shuffleTimes = randomBetween(3, 5);
+  setTimeout(function () {
+    nextNumber();
+    setTimeout(function () {
+      nextNumber();
+      setTimeout(function () {
+        nextNumber(true);
+      }, randomBetween(1400, 1600));
+    }, randomBetween(800, 1200));
+  }, randomBetween(200, 600));
 }
 function showNumber(showNumber, isSaveToHistory) {
   document.getElementById("showNumber").innerText = showNumber;
+  const color = isSaveToHistory ? "red" : "black";
+  document.getElementById("showNumber").style.color = color;
   if (!isSaveToHistory) return;
   shuffleTimes = undefined;
-  clearInterval(machineShuffle);
   console.info("stop");
   //出した後、cardElementsから撤去
   cardElements.shift();
