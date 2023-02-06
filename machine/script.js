@@ -2,6 +2,7 @@ const CARD_ELEMENT_MAX = 75;
 let hisotryNumbers = [];
 let cardElements = [...Array(CARD_ELEMENT_MAX)].map((_, i) => i + 1);
 let shuffleTimes;
+let isPressedStopButton = false;
 let shuffleCount = 0;
 /**
  * ビンゴマシーンが回っているか
@@ -20,7 +21,7 @@ function startBingo() {
     shuffleCount++;
   }, 100);
 }
-function stopBingo() {
+function stopBingoButton() {
   shuffleCount = 0;
   shuffleTimes = randomBetween(3, 5);
 }
