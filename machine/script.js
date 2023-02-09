@@ -4,6 +4,9 @@ let cardElements = [...Array(CARD_ELEMENT_MAX)].map((_, i) => i + 1);
 let shuffleTimes;
 let isPressedStopButton = false;
 let shuffleCount = 0;
+window.onload = function () {
+  headerImg.src = "../img/defalt-header.png";
+};
 /**
  * ビンゴマシーンが回っているか
  */
