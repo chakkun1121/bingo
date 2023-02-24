@@ -5,7 +5,7 @@
   }
 }
 
-#showCards>section {
+#showCards > section {
   font-size: 30px;
   display: grid;
   grid-template-columns: 100px 100px 100px 100px 100px;
@@ -25,15 +25,19 @@
   width: min-content;
 }
 
-.card-title {
+.card-header {
   grid-area: card-title;
   margin: 0;
+  text-align: center;
 }
-#showCards{  
-      display: grid;
-      justify-content: center;
+.card-header :is(h1, p) {
+  margin: 0;
 }
-#showCards>section>div {
+#showCards {
+  display: grid;
+  justify-content: center;
+}
+#showCards > section > div {
   display: grid;
   width: -webkit-fill-available;
   height: -webkit-fill-available;

@@ -12,7 +12,6 @@ function makeCard() {
   //ビンゴカードの要素を生成する
   let cardElements = [...Array(CARD_ELEMENT_MAX + 1)].map((_, i) => i);
   cardElements.shift();
-  //TODO: 何故か0が含まれることがあるのでその訂正
   //ビンゴカードを生成する
   let card = [];
   for (let j = 0; j < CARD_ELEMENT_COUNT; j++) {
