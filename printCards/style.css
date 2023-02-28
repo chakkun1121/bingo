@@ -50,4 +50,5 @@
   background-image: url(../img/headerLogo.png);
   background-repeat: no-repeat;
   background-size: contain;
+  min-height: 100px;
 }

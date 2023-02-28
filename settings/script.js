@@ -21,7 +21,8 @@ function Settings() {
           type="${value.settingInputType}" 
           value="${nowSettingsJson[value.savedName] || value.initial}" 
           ${
-            nowSettingsJson[value.savedName] === true || value.initial === true
+            nowSettingsJson[value.savedName] === true ||
+            (value.initial === true && nowSettingsJson[value.savedName])
               ? "checked"
               : ""
           }
