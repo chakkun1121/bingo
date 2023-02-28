@@ -46,3 +46,8 @@
   padding: auto;
   align-items: center;
 }
+.card-header {
+  background-image: url(../img/headerLogo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}

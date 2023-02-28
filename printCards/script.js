@@ -1,3 +1,11 @@
+let headerLogoUrl;
+window.onload = function () {
+  const root = document.querySelector(":root");
+  const settingsJson = JSON.parse(localStorage.getItem("bingosettings")) || {};
+  if (settingsJson.headerLogoUrl) {
+    headerLogoUrl = settingsJson.headerLogoUrl;
+  }
+};
 function creatCards() {
   const makeCardNumber = cardNumber.value;
   if (makeCardNumber > 10) {
@@ -11,6 +19,12 @@ function creatCards() {
   //カードの作成
   for (let i = 0; i < makeCardNumber; i++) {
     showCard(makeCard(), i + 1);
+  }
+  if (headerLogoUrl) {
+    const elements = document.querySelectorAll(".card-header");
+    for (const element of elements) {
+      element.style.backgroundImage = `url(${headerLogoUrl})`;
+    }
   }
 }
 function showCard(cardArray, index = 0) {
