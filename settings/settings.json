@@ -1,0 +1,29 @@
+{
+  "savedKey": "bingosettings",
+  "settings": [
+    {
+      "name": "印刷時のカードのヘッターの文字表示",
+      "savedName": "printCardHeaderDisplay",
+      "settingType": "boolean",
+      "settingInputType": "checkbox",
+      "initial": true,
+      "flag": true
+    },
+    {
+      "name": "印刷時のカードのIDの表示",
+      "savedName": "printCardIDdisplay",
+      "settingType": "boolean",
+      "settingInputType": "checkbox",
+      "initial": true,
+      "flag": true
+    },
+    {
+      "name": "印刷時のカードのヘッターのアイコン",
+      "savedName": "printCardHeaderIcon",
+      "settingType": "boolean",
+      "settingInputType": "file",
+      "initial": false,
+      "flag": false
+    }
+  ]
+}

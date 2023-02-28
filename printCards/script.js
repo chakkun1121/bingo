@@ -1,9 +1,9 @@
-let headerLogoUrl;
+let printCardHeaderIcon;
 window.onload = function () {
   const root = document.querySelector(":root");
   const settingsJson = JSON.parse(localStorage.getItem("bingosettings")) || {};
-  if (settingsJson.headerLogoUrl) {
-    headerLogoUrl = settingsJson.headerLogoUrl;
+  if (settingsJson.printCardHeaderIcon) {
+    printCardHeaderIcon = settingsJson.printCardHeaderIcon;
   }
 };
 function creatCards() {
@@ -20,10 +20,10 @@ function creatCards() {
   for (let i = 0; i < makeCardNumber; i++) {
     showCard(makeCard(), i + 1);
   }
-  if (headerLogoUrl) {
+  if (printCardHeaderIcon) {
     const elements = document.querySelectorAll(".card-header");
     for (const element of elements) {
-      element.style.backgroundImage = `url(${headerLogoUrl})`;
+      element.style.backgroundImage = `url(${printCardHeaderIcon})`;
     }
   }
 }
