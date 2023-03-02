@@ -7,7 +7,7 @@
       "settingType": "boolean",
       "settingInputType": "checkbox",
       "initial": true,
-      "flag": true
+      "flag": false
     },
     {
       "name": "印刷時のカードのIDの表示",
@@ -15,7 +15,7 @@
       "settingType": "boolean",
       "settingInputType": "checkbox",
       "initial": true,
-      "flag": true
+      "flag": false
     },
     {
       "name": "印刷時のカードのヘッターのアイコン",
