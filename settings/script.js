@@ -11,6 +11,9 @@ window.onload = () => {
 let settingsJson = {};
 function Settings() {
   savedKey = settingsJson.savedKey;
+  /**
+   * ローカルストレージに保存してある設定のJSON
+   */
   const nowSettingsJson = JSON.parse(localStorage.getItem(savedKey)) || {};
   document.getElementById("settingsMain").innerText = "";
   settingsJson.settings.map(function (value, indexNumber) {
@@ -28,7 +31,8 @@ function Settings() {
           }
           class="setting-input"
           onchange="saveSetting('${indexNumber}')" 
-          id="settingInput_${value.savedName}">
+          id="settingInput_${value.savedName}"
+        >
       </label>
     </div>
     `;

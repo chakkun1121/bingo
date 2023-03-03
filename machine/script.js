@@ -5,10 +5,8 @@ let shuffleTimes;
 let isPressedStopButton = false;
 let shuffleCount = 0;
 window.onload = function () {
-  const savedSettings = JSON.parse(localStorage.getItem("bingo")) || {
-    defaltHeader: "../img/defalt-header.png",
-  };
-  headerImg.src = savedSettings.defaltHeader || "../img/defalt-header.png";
+  const savedSettings = JSON.parse(localStorage.getItem("bingosetting")) || {  };
+  headerImg.src = savedSettings.machineDefaltHeaderIcon || "../img/defalt-header.png";
 };
 /**
  * ビンゴマシーンが回っているか

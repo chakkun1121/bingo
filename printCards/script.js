@@ -1,18 +1,22 @@
 let printCardHeaderIcon;
-let printCardIDdisplay = true;
-let printCardHeaderDisplay = true;
+let printCardHeaderHidden;
+let printCardIDhidden;
 window.onload = function () {
   const root = document.querySelector(":root");
   const settingsJson = JSON.parse(localStorage.getItem("bingosettings")) || {};
   if (settingsJson.printCardHeaderIcon) {
     printCardHeaderIcon = settingsJson.printCardHeaderIcon;
   }
-  if (settingsJson.printCardHeaderDisplay === false) {
-    printCardHeaderDisplay = false;
+  if (settingsJson.printCardHeaderHidden) {
+    printCardHeaderHidden = true;
   }
-  if (settingsJson.printCardIDdisplay === false) {
-    printCardHeaderDisplay = false;
+  if (settingsJson.printCardIDhidden) {
+    printCardIDhidden = true;
   }
+  root.style.setProperty(
+    "--header-icon-position",
+    settingsJson.printCardHeaderIconPosition || "left"
+  );
 };
 function creatCards() {
   const makeCardNumber = cardNumber.value;
@@ -38,14 +42,15 @@ function creatCards() {
 function showCard(cardArray, index = 0) {
   const showCards = document.getElementById("showCards");
   let cardElement = document.createElement("section");
-  if (!printCardHeaderDisplay) {
-    cardElement.innerHTML=`<div class="card-header"></div>`
-  }else{
-    if(!printCardIDdisplay){
-    cardElement.innerHTML = `<div class="card-header"><h1 class="card-title">ビンゴカード</h1></div>`;
-    }else{
-    cardElement.innerHTML = `<div class="card-header"><h1 class="card-title">ビンゴカード</h1><p>No.${index}</p></div>`;
-  }}
+  if (printCardHeaderHidden) {
+    cardElement.innerHTML = `<div class="card-header"></div>`;
+  } else {
+    if (printCardIDhidden) {
+      cardElement.innerHTML = `<div class="card-header"><h1 class="card-title">ビンゴカード</h1></div>`;
+    } else {
+      cardElement.innerHTML = `<div class="card-header"><h1 class="card-title">ビンゴカード</h1><p>No.${index}</p></div>`;
+    }
+  }
   cardArray.forEach((element) => {
     cardElement.innerHTML += `<div>${element}</div>`;
   });

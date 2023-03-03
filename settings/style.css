@@ -34,3 +34,10 @@ header h1 {
   margin: 0;
   padding: 16px;
 }
+input[type="file"] {
+  display: none;
+}
+input[type="text"],
+input [type="number"] {
+  width: 30px;
+}
