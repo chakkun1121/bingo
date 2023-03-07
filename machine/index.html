@@ -25,10 +25,12 @@
       <div class="history" id="viewHistories"></div>
     </section>
     <section class="operation">
-      <button onclick="startBingo()">回す</button>
-      <button onclick="stopBingoButton()">止める(少しだけラグがあります)</button>
+      <button onclick="window.opener?window.opener.startBingo():startBingo()">回す</button>
+      <button onclick="window.opener?window.opener.stopBingoButton():stopBingoButton()">止める(少しだけラグがあります)</button>
+      <button onclick="showPopUp()">操作画面を別画面で開く</button>
     </section>
   </main>
+  <script src="./popup.js"></script>
   <script src="./script.js"></script>
 </body>
 
