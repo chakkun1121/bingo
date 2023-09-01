@@ -5,19 +5,19 @@ import Header from './_components/header';
 import Footer from './_components/footer';
 const title = "ビンゴアプリ | chakkun1121"
 const titleShort = 'ビンゴアプリ | chakkun1121';
-const url = 'https://chakkun1121.github.io/bingo';
+const url = 'https://chakkun1121.github.io/bingo/';
 export const themeColor = '#eeeeee';
 const description =
   'chakkun1121が作成したビンゴアプリです。これはブラウザ上でビンゴカードやビンゴマシーンを使えます。イベントの準備で役立つビンゴカードの一斉印刷にも対応しています。また、イベントのロゴも設定できます。';
-const imageURL = '/img/view-english.png';
+const imageURL = '/img/bingo.png';
 export const metadata: Metadata = {
-  title: {
+  metadataBase: new URL(url),
+    title: {
     default: title,
     template: `%s | ${titleShort}`,
   },
   description,
   themeColor,
-  metadataBase: new URL(url),
   openGraph: {
     title,
     description,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     address: false,
   },
   alternates: {
-    canonical: url,
+    canonical: "/",
   },
   authors: [{ name: 'chakkun1121', url: 'https://chakkun1121.github.io/' }],
   twitter: {
@@ -58,6 +58,7 @@ export const metadata: Metadata = {
   verification: {
     google: '',
   },
+  manifest:"./manifest.json",
 };
 
 export default function RootLayout({ children }) {
