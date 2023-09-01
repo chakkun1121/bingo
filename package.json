@@ -1,7 +1,7 @@
 {
   "name": "bingo",
   "description": "これはウェブでビンゴを行うためのアプリです。",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -13,26 +13,23 @@
   },
   "homepage": "https://github.com/chakkun1121/bingo#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"http-server",
-    "start": "electron-forge start",
-    "build": "electron-packager . --overwrite",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "electron": "electron ."
+    "dev": "next dev -p 4040",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "author": "chakkun1121",
-  "license": "ISC",
-  "devDependencies": {
-    "@electron-forge/cli": "^6.0.5",
-    "@electron-forge/maker-deb": "^6.0.5",
-    "@electron-forge/maker-rpm": "^6.0.5",
-    "@electron-forge/maker-squirrel": "^6.0.5",
-    "@electron-forge/maker-zip": "^6.0.5",
-    "electron": "^22.0.3"
-  },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
-    "http-server": "^14.1.1"
+    "autoprefixer": "^10.4.15",
+    "next": "^13.4.19",
+    "next-pwa": "^5.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.5.6",
+    "@types/react": "18.2.21"
   }
 }
