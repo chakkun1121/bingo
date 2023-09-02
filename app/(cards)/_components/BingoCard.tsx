@@ -1,6 +1,6 @@
 import { bingoCardType } from "../../../@types/bingoCardType";
 
-export function BingoCard({ card, imagePath = "../img/headerLogo.png", iconPosition = "left" }: { card: bingoCardType; imagePath?: string; iconPosition?: "left" | "center" | "right"; }) {
+export function BingoCard({ card, imagePath = "./img/headerLogo.png", iconPosition = "left" }: { card: bingoCardType; imagePath?: string; iconPosition?: "left" | "center" | "right"; }) {
   return (
     <div className="p-2 border mx-auto w-max select-none print:block">
       <img className={`max-w-40 max-h-40 items-${iconPosition}`} src={imagePath} />

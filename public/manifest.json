@@ -4,13 +4,13 @@
   "description": "webビンゴアプリです。",
   "icons": [
     {
-      "src": "../img/icon.png",
+      "src": "./img/icon.png",
       "sizes": "195x195",
       "type": "image/png",
       "purpose": "maskable any"
     }
   ],
-  "start_url": "/",
+  "start_url": "./",
   "display": "fullscreen",
   "orientation": "any"
 }
