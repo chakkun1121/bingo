@@ -4,5 +4,6 @@ const withPWA = require('next-pwa')({
 
 module.exports = withPWA({
   // next.js config
-  output:"export"
+  output: "export",
+  basePath: process.env.NODE_ENV === "production" ? "/bingo" : "",
 })
