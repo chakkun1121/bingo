@@ -40,10 +40,9 @@ export async function generateMetadata({
     },
   };
 }
-export async function getStaticPaths() {
+export async function generateStaticParams() {
   const paths = await getHelpPageTitles();
-  return {
-    paths: paths.map((title) => ({ params: { title } })),
-    fallback: false,
-  };
+  return paths.map((title) => ({
+    params: { title },
+  }));
 }
