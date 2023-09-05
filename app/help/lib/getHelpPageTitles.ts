@@ -7,5 +7,6 @@ import fsPromises from "fs/promises";
 export async function getHelpPageTitles(): Promise<string[]> {
   return fsPromises
     .readdir(path.join(process.cwd(), "public", "help"))
+    .then((files) => files.filter((file) => file.endsWith(".md")))
     .then((files) => files.map((file) => file.replace(".md", "")));
 }

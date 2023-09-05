@@ -30,8 +30,12 @@ export default async function Help() {
               className="bg-green-300 rounded hover:bg-green-400 p-4 text-black hover:text-black visited:text-black"
               href={`help/${helpPageTitles[i]}`}
             >
-              <h2>{data.title}</h2>
-              <p>{data.description}</p>
+              <h2 className="line-clamp-2" title={data.title}>
+                {data.title}
+              </h2>
+              <p className="line-clamp-2" title={data.description}>
+                {data.description}
+              </p>
             </Link>
           ))}
         </div>
