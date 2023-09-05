@@ -40,9 +40,9 @@ export async function generateMetadata({
     },
   };
 }
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ title: string }[]> {
   const paths = await getHelpPageTitles();
   return paths.map((title) => ({
-    params: { title },
+    title,
   }));
 }
