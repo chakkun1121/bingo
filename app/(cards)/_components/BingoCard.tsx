@@ -2,7 +2,7 @@ import { bingoCardType } from "../../../@types/bingoCardType";
 
 export function BingoCard({ card, imagePath = "./img/headerLogo.png", iconPosition = "left" }: { card: bingoCardType; imagePath?: string; iconPosition?: "left" | "center" | "right"; }) {
   return (
-    <div className="p-2 border mx-auto w-max select-none print:block">
+    <div className="p-2 border mx-auto w-max select-none print:block" style={{pageBreakAfter:"always"}}>
       <img className={`max-w-40 max-h-40 items-${iconPosition}`} src={imagePath} alt="カードのロゴ"/>
       <div className="text-center grid grid-rows-5 gap-4 max-w-2xl">
         <div className="grid grid-cols-5 gap-4 ">
