@@ -17,6 +17,7 @@ export const settings = [
     name: "印刷時のカードのヘッターのアイコン",
     savedName: "printCardHeaderIcon",
     settingInputType: "file",
+    initial: "./img/headerLogo.png",
     flag: false,
   },
   {
