@@ -17,7 +17,11 @@ export default function Main() {
         <h1 className="print:hidden">ビンゴカード</h1>
         <button
           onClick={() => {
+            if (!window.confirm("カードをリセットしますか?")) return;
             setCard(createCard());
+            setCardInfo(
+              Array(25).fill(false) as unknown as arrayExactLength<boolean, 25>
+            );
           }}
           className="text-M p-2 m-2 bg-green-200 hover:bg-green-300 rounded"
         >
