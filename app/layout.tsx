@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import "./globals.css";
 import { StrictMode } from "react";
 import Header from "./_components/header";
@@ -18,7 +18,6 @@ export const metadata: Metadata = {
     template: `%s | ${titleShort}`,
   },
   description,
-  themeColor,
   openGraph: {
     title,
     description,
@@ -56,10 +55,10 @@ export const metadata: Metadata = {
       },
     ],
   },
-  verification: {
-    google: "",
-  },
   manifest: "./manifest.json",
+};
+export const viewport: Viewport = {
+  themeColor,
 };
 
 export default function RootLayout({ children }) {

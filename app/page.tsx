@@ -28,7 +28,7 @@ export default function Main() {
               text: "このアプリについて",
             },
           ].map((item) => (
-            <li>
+            <li key={item.text}>
               <Link href={item.href}>{item.text}</Link>
             </li>
           ))}
