@@ -4,16 +4,34 @@ export default function Main() {
   return (
     <>
       <section className="bg-green-100 rounded p-2 m-2">
-        <h2>ビンゴアプリ</h2>
-      </section>
-      <section className="bg-green-100 rounded p-2 m-2">
         <h2>アプリの中身</h2>
         <ul className="list-disc pl-4 list-inside">
-          <li><Link href="./card">ビンゴカード</Link></li>
-          <li><Link href="./machine/index.html">ビンゴマシーン</Link></li>
-          <li><Link href="./printCards/">ビンゴカードをまとめて印刷</Link></li>
-          <li><Link href="./settings/index.html">設定</Link></li>
-          <li><Link href="./help">このアプリについて</Link></li>
+          {[
+            {
+              href: "./card",
+              text: "ビンゴカード",
+            },
+            {
+              href: "./machine",
+              text: "ビンゴマシーン",
+            },
+            {
+              href: "./printCards",
+              text: "ビンゴカードをまとめて印刷",
+            },
+            {
+              href: "./settings",
+              text: "設定",
+            },
+            {
+              href: "./help",
+              text: "このアプリについて",
+            },
+          ].map((item) => (
+            <li>
+              <Link href={item.href}>{item.text}</Link>
+            </li>
+          ))}
         </ul>
       </section>
     </>
