@@ -69,13 +69,9 @@ export default function RootLayout({ children }) {
         <AppProvider>
           <body className="flex min-h-screen flex-col">
             <Header />
-            <div className="mb-36 mt-14 w-full px-6 flex-grow">
-              <div className="max-w-container mx-auto grid grid-cols-1 gap-8 sm:grid-cols-12">
-                <main className="gap-22 col-span-full flex flex-col">
-                  {children}
-                </main>
-              </div>
-            </div>
+            <main className="gap-22 col-span-full flex flex-col flex-1 p-4">
+              {children}
+            </main>
             <Footer />
           </body>
         </AppProvider>
