@@ -9,6 +9,7 @@ export default function MachinePage() {
   const [currentNumber, setCurrentNumber] = useState<Number>(0);
   const [histories, setHistories] = useState<Number[]>([]);
   const [isSpinning, setIsSpinning] = useState<boolean>(false);
+  const [isShowOperation, setIsShowOperation] = useState<boolean>(false);
   const [restNumbers, setRestNumbers] = useState<Number[]>(
     [...Array(75)].map((_, i) => i + 1)
   );
@@ -18,11 +19,13 @@ export default function MachinePage() {
       "operation",
       "width=400,height=400"
     );
-    operation?.postMessage(isSpinning, "*");
+    setIsShowOperation(true);
+    operation?.addEventListener("close", () => {
+      setIsShowOperation(false);
+    });
   }
   useEffect(() => {
     function onMessage(event: MessageEvent) {
-      console.log(event);
       if (event.data == "startBingo") {
         // startBingo();
       }
@@ -80,12 +83,20 @@ export default function MachinePage() {
           ))}
         </div>
       </section>
-      <section>
+      <section className={`${isShowOperation && "hidden"}`}>
         <h2>操作画面</h2>
-        <button onClick={startBingo} id="startBingoButton">
-          回す(自動で止まります)
-        </button>
-        <button onClick={openOperation}>操作画面を開く</button>
+        <div className="flex gap-2">
+          <button
+            onClick={startBingo}
+            id="startBingoButton"
+            className="p-2 rounded bg-gray-200"
+          >
+            回す(自動で止まります)
+          </button>
+          <button onClick={openOperation} className="p-2 rounded bg-gray-200">
+            操作画面を開く
+          </button>
+        </div>
       </section>
     </div>
   );

@@ -10,7 +10,6 @@ export default function PrintCards() {
   const createCard = useCreateCard();
   const [cards, setCards] = useState<Array<bingoCardType>>([]);
   function updateCards() {
-    console.debug(cardsNumber);
     setCards(Array.from({ length: cardsNumber }, () => createCard()));
   }
   return (

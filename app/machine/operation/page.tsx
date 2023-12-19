@@ -10,7 +10,9 @@ export default function MachineOperationPage() {
   return (
     <section className="operation">
       <h2>操作画面</h2>
-      <button onClick={startBingo}>回す(自動で止まります)</button>
+      <button onClick={startBingo} className="p-2 rounded bg-gray-200">
+        回す(自動で止まります)
+      </button>
     </section>
   );
 }
