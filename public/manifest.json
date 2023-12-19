@@ -12,5 +12,27 @@
   ],
   "start_url": "./",
   "display": "fullscreen",
-  "orientation": "any"
+  "orientation": "any",
+  "screenshots": [
+    {
+      "src": "./img/1.webp",
+      "sizes": "640x360",
+      "type": "image/webp"
+    },
+    {
+      "src": "./img/2.webp",
+      "sizes": "640x360",
+      "type": "image/webp"
+    },
+    {
+      "src": "./img/3.webp",
+      "sizes": "640x360",
+      "type": "image/webp"
+    },
+    {
+      "src": "./img/4.webp",
+      "sizes": "640x360",
+      "type": "image/webp"
+    }
+  ]
 }
