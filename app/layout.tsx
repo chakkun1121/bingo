@@ -1,6 +1,6 @@
 import { Metadata, Viewport } from "next";
 import "./globals.css";
-import { StrictMode } from "react";
+import { ReactNode, StrictMode } from "react";
 import Header from "./_components/header";
 import Footer from "./_components/footer";
 import AppProvider from "./provider/recoil";
@@ -61,20 +61,20 @@ export const viewport: Viewport = {
   themeColor,
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
-      <StrictMode>
-        <AppProvider>
-          <body className="flex min-h-screen flex-col">
-            <Header />
-            <main className="gap-22 col-span-full flex flex-col flex-1 p-4">
-              {children}
-            </main>
-            <Footer />
-          </body>
-        </AppProvider>
-      </StrictMode>
+      {/* <StrictMode> */}
+      <AppProvider>
+        <body className="flex min-h-screen flex-col">
+          <Header />
+          <main className="gap-22 col-span-full flex flex-col flex-1 p-4">
+            {children}
+          </main>
+          <Footer />
+        </body>
+      </AppProvider>
+      {/* </StrictMode> */}
     </html>
   );
 }

@@ -1,25 +1,44 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MachineHeaderImage from "./MachineHeaderImage";
 import { arrayShuffle } from "../lib/arrayShuffle";
 import { sleep } from "../lib/sleep";
 import { randomBetween } from "../lib/randomBetween";
 
 export default function MachinePage() {
-  const [currentNumber, setCurrentNumber] = useState<Number | undefined>(
-    undefined
-  );
+  const [currentNumber, setCurrentNumber] = useState<Number>(0);
   const [histories, setHistories] = useState<Number[]>([]);
   const [isSpinning, setIsSpinning] = useState<boolean>(false);
   const [restNumbers, setRestNumbers] = useState<Number[]>(
     [...Array(75)].map((_, i) => i + 1)
   );
+  function openOperation() {
+    const operation = window.open(
+      "./machine/operation",
+      "operation",
+      "width=400,height=400"
+    );
+    operation?.postMessage(isSpinning, "*");
+  }
+  useEffect(() => {
+    function onMessage(event: MessageEvent) {
+      console.log(event);
+      if (event.data == "startBingo") {
+        // startBingo();
+      }
+    }
+    window.addEventListener("message", onMessage);
+    return () => {
+      window.removeEventListener("message", onMessage);
+    };
+  }, []);
 
   async function startBingo() {
     if (restNumbers.length == 0) {
       alert("もうすべての番号を出しました。");
       return;
     }
+    if (isSpinning) return;
     setIsSpinning(true);
     for (let i = 0; i < randomBetween(10, 20); i++) {
       setCurrentNumber(arrayShuffle(restNumbers)[0]);
@@ -33,36 +52,9 @@ export default function MachinePage() {
     await sleep(randomBetween(1400, 1600));
     const viewNumber = arrayShuffle(restNumbers)[0];
     setCurrentNumber(viewNumber);
-    setHistories([...histories, viewNumber]);
+    setHistories([viewNumber, ...histories]);
     setRestNumbers(restNumbers.filter((n) => n != viewNumber));
     setIsSpinning(false);
-  }
-  async function showPopUp() {
-    // eslint-disable
-    if (event.view != window) {
-      throw new Error("サブウィンドウのサブウィンドウは開けません");
-    }
-    const player = document.getElementsByClassName("operation")[0];
-    let pipWindow;
-    if (window.documentPictureInPicture) {
-      pipWindow = await documentPictureInPicture.requestWindow({
-        width: player.clientWidth,
-        height: player.clientHeight,
-        copyStyleSheets: true,
-      });
-      pipWindow.addEventListener("unload", (event) => {
-        const pipPlayer = event.target.body.querySelector(".operation");
-        document.querySelector("main").append(pipPlayer);
-      });
-    } else {
-      pipWindow = window.open("", "subpanel", "width=400,height=100");
-      pipWindow.addEventListener("unload", (event) => {
-        const pipPlayer = event.target.body.querySelector(".operation");
-        document.querySelector("main").append(pipPlayer);
-      });
-    }
-    pipWindow.document.body.appendChild(player);
-    // eslint-enable
   }
 
   return (
@@ -71,7 +63,9 @@ export default function MachinePage() {
       <section>
         <p
           id="showNumber"
-          className={`text-[200px] ${!isSpinning && "text-red-500"}`}
+          className={`text-[200px] text-center ${
+            !isSpinning && "text-red-500"
+          }`}
         >
           {currentNumber?.toString() || ""}
         </p>
@@ -86,12 +80,12 @@ export default function MachinePage() {
           ))}
         </div>
       </section>
-      <section className="operation">
+      <section>
         <h2>操作画面</h2>
-        <button disabled={isSpinning} onClick={startBingo}>
+        <button onClick={startBingo} id="startBingoButton">
           回す(自動で止まります)
         </button>
-        <button onClick={showPopUp}>操作画面を別画面で開く</button>
+        <button onClick={openOperation}>操作画面を開く</button>
       </section>
     </div>
   );
