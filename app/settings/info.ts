@@ -24,6 +24,7 @@ export const settings = [
     name: "ビンゴマシーンのヘッター部分のロゴ",
     savedName: "machineDefaultHeaderIcon",
     settingInputType: "file",
+    initial: "../img/default-header.png",
     flag: false,
   },
   {
