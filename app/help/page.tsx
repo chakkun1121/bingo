@@ -3,7 +3,11 @@ import { helpFileDataType } from "../../@types/helpFileDataType";
 import { getHelpFileData } from "./lib/getHelpFileData";
 import { getHelpPageTitles } from "./lib/getHelpPageTitles";
 import Link from "next/link";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "ヘルプ記事一覧",
+  description: "chakkun1121製のビンゴアプリのヘルプ記事の一覧です。",
+};
 export default async function Help() {
   const helpPageTitles: string[] = await getHelpPageTitles();
   const helpPagesData: helpFileDataType[] = await Promise.all(
