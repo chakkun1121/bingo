@@ -1,28 +1,28 @@
-import { Metadata } from 'next';
-import './globals.css';
-import { StrictMode } from 'react';
-import Header from './_components/header';
-import Footer from './_components/footer';
-const title = "ビンゴアプリ | chakkun1121"
-const titleShort = 'ビンゴアプリ | chakkun1121';
-const url = 'https://chakkun1121.github.io/bingo/';
-export const themeColor = '#BBD0BA';
+import { Metadata, Viewport } from "next";
+import "./globals.css";
+import { ReactNode, StrictMode } from "react";
+import Header from "./_components/header";
+import Footer from "./_components/footer";
+import AppProvider from "./provider/recoil";
+const title = "ビンゴアプリ | chakkun1121";
+const titleShort = "ビンゴアプリ | chakkun1121";
+const url = "https://chakkun1121.github.io/bingo/";
+const themeColor = "#BBD0BA";
 const description =
-  'chakkun1121が作成したビンゴアプリです。これはブラウザ上でビンゴカードやビンゴマシーンを使えます。イベントの準備で役立つビンゴカードの一斉印刷にも対応しています。また、イベントのロゴも設定できます。';
-const imageURL = '/img/bingo.png';
+  "chakkun1121が作成したビンゴアプリです。これはブラウザ上でビンゴカードやビンゴマシーンを使えます。イベントの準備で役立つビンゴカードの一斉印刷にも対応しています。また、イベントのロゴも設定できます。";
+const imageURL = "/img/bingo.png";
 export const metadata: Metadata = {
   metadataBase: new URL(url),
-    title: {
+  title: {
     default: title,
     template: `%s | ${titleShort}`,
   },
   description,
-  themeColor,
   openGraph: {
     title,
     description,
     url,
-    type: 'website',
+    type: "website",
     images: [
       {
         url: imageURL,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         height: 768,
       },
     ],
-    locale: 'ja_JP',
+    locale: "ja_JP",
   },
   formatDetection: {
     telephone: false,
@@ -40,11 +40,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  authors: [{ name: 'chakkun1121', url: 'https://chakkun1121.github.io/' }],
+  authors: [{ name: "chakkun1121", url: "https://chakkun1121.github.io/" }],
   twitter: {
-    card: 'summary',
-    site: '@chakkun1121',
-    creator: '@chakkun1121',
+    card: "summary",
+    site: "@chakkun1121",
+    creator: "@chakkun1121",
     title,
     description,
     images: [
@@ -55,26 +55,26 @@ export const metadata: Metadata = {
       },
     ],
   },
-  verification: {
-    google: '',
-  },
-  manifest:"./manifest.json",
+  manifest: "./manifest.json",
+};
+export const viewport: Viewport = {
+  themeColor,
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
-      <StrictMode>
-        <body className='flex min-h-screen flex-col'>
+      {/* <StrictMode> */}
+      <AppProvider>
+        <body className="flex min-h-screen flex-col">
           <Header />
-          <div className="mb-36 mt-14 w-full px-6 flex-grow">
-            <div className="max-w-container mx-auto grid grid-cols-1 gap-8 sm:grid-cols-12">
-              <main className="gap-22 col-span-full flex flex-col">{children}</main>
-            </div>
-          </div>
+          <main className="gap-22 col-span-full flex flex-col flex-1 p-4">
+            {children}
+          </main>
           <Footer />
         </body>
-      </StrictMode>
+      </AppProvider>
+      {/* </StrictMode> */}
     </html>
   );
 }

@@ -1,6 +1,6 @@
 import path from "path";
 import { getHelpPageTitles } from "../lib/getHelpPageTitles";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import ReactMarkdown from "react-markdown";
 import { getHelpFileData } from "../lib/getHelpFileData";
 import { Metadata } from "next";
 import Link from "next/link";
