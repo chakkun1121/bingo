@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 export default function Main() {
   return (
+    <>
       <section className="bg-green-100 rounded p-2 m-2">
         <h2>このアプリについて</h2>
         <p>
