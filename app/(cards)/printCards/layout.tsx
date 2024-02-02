@@ -9,4 +9,5 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/printCards",
   },
+  robots: "noindex",
 };

@@ -1,5 +1,4 @@
 https://chakkun1121.github.io/bingo/
 https://chakkun1121.github.io/bingo/card
-https://chakkun1121.github.io/bingo/printCards
 https://chakkun1121.github.io/bingo/machine
 https://chakkun1121.github.io/bingo/settings
