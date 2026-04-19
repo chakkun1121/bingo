@@ -6,7 +6,7 @@ import Footer from "./_components/footer";
 import AppProvider from "./provider/recoil";
 const title = "ビンゴアプリ | chakkun1121";
 const titleShort = "ビンゴアプリ | chakkun1121";
-const url = "https://chakkun1121.github.io/bingo/";
+const url = "https://bingo.chakkun1121.com/";
 const themeColor = "#BBD0BA";
 const description =
   "chakkun1121が作成したビンゴアプリです。これはブラウザ上でビンゴカードやビンゴマシーンを使えます。イベントの準備で役立つビンゴカードの一斉印刷にも対応しています。また、イベントのロゴも設定できます。";
